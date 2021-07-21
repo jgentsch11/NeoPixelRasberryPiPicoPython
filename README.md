@@ -5,7 +5,7 @@ Welcome! If you are looking to use a Raspberry Pi Pico and connect it to an LED 
 
 I bought a Raspberry Pi Pico and wanted to create some cool light shows on an LED strip. Since the Pico is new (as of writing) I was having trouble finding documentation and proper setup for the Raspberry Pi Pico. I figured I could document my process and help you get started without hitting the same stumbling blocks I hit. 
 
-I am attaching my lights inside a wizard hat, so I am buying battery packs to run my LED strip and Pico off AA batteries. I would buy the pico, battery holders, and everything else you can find off vilros.com its a little cheaper than buying from Amazon.
+I am attaching my lights inside a wizard hat, so I am buying battery packs to run both my LED strip and Pico off of AA batteries. 
 
 
 What you will need:
@@ -19,3 +19,8 @@ What you will need:
 8. Micro USB to USB (to connect pico to labtop)
 
 
+Installing Circuit Python and Neopixel onto your Raspberry PI
+1. Follow the instructions in this link https://learn.adafruit.com/getting-started-with-raspberry-pi-pico-circuitpython/circuitpython  or follow here click "Download the latest version of Circuit Python for Raspbery PI Pico from circuitpython.org". Hold down Bootsel button on Pico while plugging in your pico to your laptop via USB Micro cable, with the file explorer window that pops up, copy the downloaded UF2 file onto and put into the pico, once the file is on there you can unplug and replug in your Pico (don't hold the bootsel this time). 
+2. Next you will want to open Thonny IDE (or download it if you don't have it already onto your laptop). With your Pico plugged in and Thonny open select  Run -> Select Interpreter -> and within the first dropdown choose CircuitPython (generic). And the second dropdown "Port" try and choose "Raspberry PI Pico" (I didn't see that option and just left it on "Try to detect port automatically" and it still works).
+3. Next create a new script within your Raspberry Pi Pico. Copy the code from here https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/blob/main/neopixel.py and paste into the new script you created. Save your file as neopixel.py within your Raspberry Pi Pico.
+4. Copy the code from my main.py file which has a bunch of light sequences. Create a new script within Thonny on your Raspberry Pi Pico, paste in the copied data,  save  your file as main.py. (by savings this file as main.py it will automatically run this file everytime you plug in your pico).  
