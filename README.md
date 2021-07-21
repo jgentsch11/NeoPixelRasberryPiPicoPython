@@ -27,7 +27,9 @@ Installing Circuit Python and Neopixel onto your Raspberry PI Pico
 5. Update your main.py ~around lines 29 ~ Setting your led_count to the number of LEDS on your strip, the pico GPIO Pin you are using (I am using 0), and change the brightness to values between 0.0 - 1.0.
 
     pico_pin = board.GP0 #set to GPIO 0
+    
     led_count = 60
+    
     pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)   
 
 
