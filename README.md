@@ -24,7 +24,7 @@ Installing Circuit Python and Neopixel onto your Raspberry PI Pico
 2. Next you will want to open Thonny IDE (or download it if you don't have it already onto your laptop). With your Pico plugged in and Thonny open select  Run -> Select Interpreter -> and within the first dropdown choose CircuitPython (generic). And the second dropdown "Port" try and choose "Raspberry PI Pico" (I didn't see that option and just left it on "Try to detect port automatically" and it still works).
 3. Next create a new script within your Raspberry Pi Pico. Copy the code from here https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/blob/main/neopixel.py and paste into the new script you created. Save your file as neopixel.py within your Raspberry Pi Pico.
 4. Copy the code from my main.py file which has a bunch of light sequences. Create a new script within Thonny on your Raspberry Pi Pico, paste in the copied data,  save  your file as main.py. (by savings this file as main.py it will automatically run this file everytime you plug in your pico). 
-5. Update your main.py ~around lines 29 ~ Setting your led_count to the number of LEDS on your strip, the pico GPIO Pin you are using (I am using 0), and change the brightness to values between 0.0 - 1.0
+5. Update your main.py ~around lines 29 ~ Setting your led_count to the number of LEDS on your strip, the pico GPIO Pin you are using (I am using 0), and change the brightness to values between 0.0 - 1.0.
     pico_pin = board.GP0 #set to GPIO 0
     led_count = 60
     pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)   
