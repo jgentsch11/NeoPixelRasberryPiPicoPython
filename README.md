@@ -7,6 +7,7 @@ I bought a Raspberry Pi Pico and wanted to create some cool light shows on an LE
 
 I am attaching my lights inside a wizard hat, so I am buying battery packs to run my LED strip and Pico off AA batteries. I would buy the pico, battery holders, and everything else you can find off vilros.com its a little cheaper than buying from Amazon.
 
+
 What you will need:
 1. WS2812B single addressable LED strip - This is the one I ordered https://www.amazon.com/dp/B088FK5QBJ?ref=ppx_pop_mob_ap_share
 2. Raspberry PI Pico - pre soldered (or not if you have a soldering kit) https://vilros.com/collections/raspberry-pi-pico
