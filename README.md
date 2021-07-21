@@ -12,11 +12,12 @@ I am attaching my lights inside a wizard hat, so I am buying battery packs to ru
 1. WS2812B single addressable LED strip - This is the one I ordered https://www.amazon.com/dp/B088FK5QBJ?ref=ppx_pop_mob_ap_share
 2. Raspberry PI Pico - pre soldered (or not if you have a soldering kit) https://vilros.com/collections/raspberry-pi-pico
 3. 3 AA Battery Holder With Micro USB Connector to Pico https://vilros.com/products/3-aa-battery-holder-with-micro-usb-connector-great-for-raspberry-pi-pico
-4. Wires set. I bought this set  https://www.amazon.com/dp/B01EV70C78?ref=ppx_pop_mob_ap_share
-5. Low Voltage Wire Connectors to easily connect LED wires to pico wires. I bought this set off amazon https://www.amazon.com/dp/B085PQG3L5?ref=ppx_pop_mob_ap_share
-6. 4xAA Battery Pack Holder Case Box for LEDs https://www.amazon.com/dp/B07T65WWCR?ref=ppx_pop_mob_ap_share
-7. DC Barrel Jack 10 Pairs 12V Male+Female... https://www.amazon.com/dp/B01J1WZENK?ref=ppx_pop_mob_ap_share
-8. Micro USB to USB (to connect pico to labtop)
+4. Breadboard https://vilros.com/products/breadboard
+5. Wires set. I bought this set  https://www.amazon.com/dp/B01EV70C78?ref=ppx_pop_mob_ap_share
+6. Low Voltage Wire Connectors to easily connect LED wires to pico wires. I bought this set off amazon https://www.amazon.com/dp/B085PQG3L5?ref=ppx_pop_mob_ap_share
+7. 4xAA Battery Pack Holder Case Box for LEDs https://www.amazon.com/dp/B07T65WWCR?ref=ppx_pop_mob_ap_share
+8. DC Barrel Jack 10 Pairs 12V Male+Female... https://www.amazon.com/dp/B01J1WZENK?ref=ppx_pop_mob_ap_share
+9. Micro USB to USB (to connect pico to labtop)
 
 
 **Installing Circuit Python and Neopixel onto your Raspberry PI Pico**
@@ -31,4 +32,5 @@ led_count = 60
 pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)   
 ```
 
-**Setting up Raspberry Pi Pico**
+**Configuring Raspberry Pi Pico**
+1. place your Pico onto the breadboard. 
