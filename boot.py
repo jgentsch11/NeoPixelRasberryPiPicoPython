@@ -1,6 +1,6 @@
 '''
 ---------------------------------------------
-Title: all_together.py
+Title: boot.py
 Description: This is a running list of my favorite neopixel led strip scripts. Combining them together to make a long running script. 
 List:
     1) SOLID COLORS
