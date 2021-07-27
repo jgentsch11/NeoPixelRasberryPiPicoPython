@@ -25,7 +25,8 @@ I am attaching my lights inside a wizard hat, so I am buying battery packs to ru
 2. Next you will want to open Thonny IDE (or download it if you don't have it already onto your laptop). With your Pico plugged in and Thonny open select  Run -> Select Interpreter -> and within the first dropdown choose CircuitPython (generic). And the second dropdown "Port" try and choose "Raspberry PI Pico" (I didn't see that option and just left it on "Try to detect port automatically" and it still works).
 3. Next create a new script within your Raspberry Pi Pico. Copy the code from here https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel/blob/main/neopixel.py and paste into the new script you created. Save your file as neopixel.py within your Raspberry Pi Pico.
 4. Copy the code from my boot.py file which has a bunch of light sequences. Create a new script within Thonny on your Raspberry Pi Pico, paste in the copied data,  save  your file as boot.py. (by savings this file as boot.py it will automatically run this file everytime you plug in your pico). 
-5. Update your boot.py ~around lines 29 ~ Setting your led_count to the number of LEDS on your strip, the pico GPIO Pin you are using (I am using 0), and change the brightness to values between 0.0 - 1.0.
+5. Instead of writing all my own code, I downloaded some extra LED animations from adafruit. Download and copy the folder "adafruit_led_animation" and put that file directly onto your pico using Thonny.
+6. Update your boot.py ~around lines 29 ~ Setting your led_count to the number of LEDS on your strip, the pico GPIO Pin you are using (I am using 0), and change the brightness to values between 0.0 - 1.0.
 ```
 pico_pin = board.GP0 #set to GPIO 0
 led_count = 60    
@@ -34,3 +35,7 @@ pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)
 
 **Configuring Raspberry Pi Pico**
 1. place your Pico onto the breadboard. 
+
+
+**Extra LED Scripts to check out**
+1. I downloaded "adafruit-circuitpython-bundle-py-20210727.zip" from https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20210727 . Within the zip file navigate to  \lib\adafruit_led_animation\animation . I found a few cool scripts within that directory (animations,blink.py, chase.py, colorcycle.py, rainbowsparkle.py, etc...). Open up those files and see what packages they are importing and download those imports directly onto your pico using Thonny to use them.
