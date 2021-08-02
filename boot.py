@@ -415,7 +415,9 @@ for x in range(3):
     #####COLOR CHASE####
     color_chase(red, random.choice(color_chase_range))  # Increase the number to slow down the color chase
     color_chase(yellow, random.choice(color_chase_range)) 
-    color_chase(green, random.choice(color_chase_range)) 
+    color_chase(green, random.choice(color_chase_range))
+    for x in range(5): #this is my favorite! Rainbow(0)
+        rainbow(0)
     color_chase(cyan, random.choice(color_chase_range)) 
     color_chase(blue, random.choice(color_chase_range)) 
     color_chase(purple, random.choice(color_chase_range)) 
@@ -446,6 +448,13 @@ for x in range(3):
 
     ####CHASE COLOR STICK####
     chase_color_stick(bright_list)
+    
+    #RAINBOW COMET
+    animations = [make_animation(strip) for strip in strips]
+    group = AnimationGroup(*animations, )
+    t_end = time.time() + 30 * 1  #run while loop for 60 seconds * x
+    while time.time() < t_end:
+        group.animate()
     chase_color_stick(purple_blue_list)
     chase_color_stick(greenyellow_list)
     clear_strip_color()
@@ -453,11 +462,10 @@ for x in range(3):
     ####MULTIPLE SEND####
     multiple_send(random.choice(color_chase_range), greenyellow_list, random.randint(1,5))# wait, color list, how many leds to send
     clear_strip_color()
-    #print('done')
-#
+
     #RAINBOW COMET
-    animations = [make_animation(strip) for strip in strips]
-    group = AnimationGroup(*animations, )
+    #animations = [make_animation(strip) for strip in strips]
+    #group = AnimationGroup(*animations, )
     t_end = time.time() + 30 * 1  #run while loop for 60 seconds * x
     while time.time() < t_end:
         group.animate()
@@ -481,7 +489,6 @@ for x in range(3):
     t_end = time.time() + 30 * 1  #run while loop for 60 seconds * x
     while time.time() < t_end:
         animations.animate()
-    #print(x)
     
     
     
