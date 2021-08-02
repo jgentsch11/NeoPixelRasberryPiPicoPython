@@ -11,6 +11,9 @@ List:
     6) COLOR CHASE LIST
     7) COLOR CHASE STICK
     8) MULTIPLE SEND
+    9) RAINBOW COMET
+    10) CUSTOM COLOR CHASE
+    11) RAINBOW ANIMATIONS
 Gentsch, 7/11/2021, Created File
 Gentsch, Modify date, Modified script for xyz
 ---------------------------------------------
@@ -23,13 +26,26 @@ import neopixel
 import time
 from _pixelbuf import colorwheel
 import random
+from adafruit_led_animation.animation.rainbowcomet import RainbowComet
+from adafruit_led_animation.helper import PixelMap
+from adafruit_led_animation.group import AnimationGroup
+from adafruit_led_animation.animation.customcolorchase import CustomColorChase
+from adafruit_led_animation.sequence import AnimationSequence
+from adafruit_led_animation.color import colorwheel
+from adafruit_led_animation.color import PINK, GREEN, RED, BLUE
 
 pico_pin = board.GP0 #set to GPIO 0
-led_count = 60
+led_count = 90
+num_strands = 1
 pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)  
 
 rainbow_range =[0.00 ,  0.01,  0.02,  0.03,  0.04]
 color_chase_range = [0.00 ,  0.01,  0.02,  0.03,  0.04]  #a range between 0 and .05 is good
+
+#for rainbow comet
+strips = [PixelMap(pixels, range(i*led_count, (i+1)*led_count), individual_pixels=True)
+    for i in range(num_strands)]
+
 
 #for Flashing Brights
 max_len=30
@@ -350,37 +366,45 @@ def multiple_send(wait, color_list, line_length):
             pass
     time.sleep(0.1)
 
+def make_animation(strip):
+    speed = (1+random.random()) * 0.02
+    length = random.randrange(14, 22)
+    bounce = random.random() > .5
+    offset = random.randint(0, 255)
+    return RainbowComet(strip, speed=speed, tail_length=length, bounce=bounce,
+        colorwheel_offset=offset)
+
 
 pixels.fill(no_color)   #when autowrite=False this won't work!
 pixels.show()
-time.sleep(1)
+time.sleep(.25)
 ##############################
 #-- Presentation (I/0) code--#
 ##############################
         
 for x in range(3):    
-#     ####SOLID COLORS####
-#     print('no color')
-#     clear_strip_color()
-#     
-#     print('red')
-#     pixels.fill(red)
-#     pixels.show()
-#     time.sleep(1)
-#     clear_strip_color()
-#     
-#     print('green')
-#     pixels.fill(green)
-#     pixels.show()
-#     time.sleep(1)
-#     clear_strip_color()
-#     
-#     print('blue')
-#     pixels.fill(blue) 
-#     pixels.show()
-#     time.sleep(1)
-#     clear_strip_color()
-#     
+    ####SOLID COLORS####
+    #print('no color')
+    clear_strip_color()
+    
+    #print('red')
+    pixels.fill(red)
+    pixels.show()
+    time.sleep(1)
+    clear_strip_color()
+    
+    #print('green')
+    pixels.fill(green)
+    pixels.show()
+    time.sleep(1)
+    clear_strip_color()
+    
+    #print('blue')
+    pixels.fill(blue) 
+    pixels.show()
+    time.sleep(1)
+    clear_strip_color()
+    
     ####RAINBOW####
     for x in range(5): #this is my favorite! Rainbow(0)
         rainbow(0)
@@ -429,7 +453,35 @@ for x in range(3):
     ####MULTIPLE SEND####
     multiple_send(random.choice(color_chase_range), greenyellow_list, random.randint(1,5))# wait, color list, how many leds to send
     clear_strip_color()
-    print('done')
+    #print('done')
+#
+    #RAINBOW COMET
+    animations = [make_animation(strip) for strip in strips]
+    group = AnimationGroup(*animations, )
+    t_end = time.time() + 30 * 1  #run while loop for 60 seconds * x
+    while time.time() < t_end:
+        group.animate()
+    
+    #CUSTOM COLOR CHASE
+    custom_color_chase_rainbow = CustomColorChase(pixels, speed=0.1, size=2, spacing=3)
+    custom_color_chase_rainbow_r = CustomColorChase(pixels, speed=0.1, size=3, spacing=3, reverse=True)
+    steps = 30
+    rainbow_colors = [colorwheel(n % 256) for n in range(0, 512, steps)]
+    custom_color_chase_rainbowchase = CustomColorChase(pixels, speed=0.1, colors=rainbow_colors, size=2, spacing=3) # Now use rainbow_colors with CustomColorChase
+    custom_color_chase_bgp = CustomColorChase(pixels, speed=0.1, colors=[BLUE, GREEN, PINK], size=3, spacing=2)
+
+    animations = AnimationSequence(
+        custom_color_chase_rainbow,
+        custom_color_chase_rainbow_r,
+        custom_color_chase_rainbowchase,
+        custom_color_chase_bgp,
+        advance_interval=6,
+        auto_clear=True,
+    )
+    t_end = time.time() + 30 * 1  #run while loop for 60 seconds * x
+    while time.time() < t_end:
+        animations.animate()
+    #print(x)
     
     
     
