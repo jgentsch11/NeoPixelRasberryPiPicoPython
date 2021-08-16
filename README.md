@@ -8,7 +8,9 @@ I bought a Raspberry Pi Pico and wanted to create some cool light shows on an LE
 I am attaching my lights inside a wizard hat, so I am buying battery packs to run both my LED strip and Pico off of AA batteries. 
 
 
-**What you will need:**
+
+
+**What you will need to buy:**
 1. WS2812B single addressable LED strip - This is the one I ordered https://www.amazon.com/dp/B088FK5QBJ?ref=ppx_pop_mob_ap_share
 2. Raspberry PI Pico - pre soldered (or not if you have a soldering kit) https://vilros.com/collections/raspberry-pi-pico
 3. 3 AA Battery Holder With Micro USB Connector to Pico https://vilros.com/products/3-aa-battery-holder-with-micro-usb-connector-great-for-raspberry-pi-pico
@@ -36,7 +38,7 @@ pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)
 **Configuring Raspberry Pi Pico**
 1. Place your Pico onto the breadboard. 
 2. Connect your wires to GPIO 0 (data pin), GPIO 40 (power), GPIO 38 (ground)
-3. The LED lights I purchased had 5 wires coming out of it. Two of those wires (power and ground) go to your dc barrel jack and be your power source and go to your outlet or battery pack. The other three wires go to your pico/breadboard. A) DIN (data in) will go to your GPIO 0   B) 5v will go to GPIO 40 (power pin)   C) the ground wire will go to GPIO 38 (ground).
+3. The LED lights I purchased had 5 wires coming out of it. Two of those wires (power and ground) go to your dc barrel jack and will be your power source and go to your outlet or battery pack. The other three wires go to your pico/breadboard. A) DIN (data in) will go to your GPIO 0   B) 5v will go to GPIO 40 (power pin)   C) the ground wire will go to GPIO 38 (ground).
 
 ![alt text](https://github.com/jgentsch11/NeoPixelRasberryPiPicoPython/blob/main/pico_breadboard_setup.jpg?raw=true)
 ![alt text](https://github.com/jgentsch11/NeoPixelRasberryPiPicoPython/blob/main/pico_pinout.JPG?raw=true)
