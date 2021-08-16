@@ -37,7 +37,7 @@ pixels = neopixel.NeoPixel(pico_pin, led_count, brightness=1, auto_write=False)
 1. place your Pico onto the breadboard. 
 
 
-![alt text](https://github.com/jgentsch11/[reponame]/blob/NeoPixelRasberryPiPicoPython/pico_breadboard_setup.jpg?raw=true)
+![alt text](https://github.com/jgentsch11/NeoPixelRasberryPiPicoPython/blob/pico_breadboard_setup.jpg?raw=true)
 
 **Extra LED Scripts to check out**
 1. I downloaded "adafruit-circuitpython-bundle-py-20210727.zip" from https://github.com/adafruit/Adafruit_CircuitPython_Bundle/releases/tag/20210727 . Within the zip file navigate to  \lib\adafruit_led_animation\animation . I found a few cool scripts within that directory (animations,blink.py, chase.py, colorcycle.py, rainbowsparkle.py, etc...). You will need to add these files to your pico. You can download those imports directly onto your pico using Thonny. Go back to your zip filepath adafruit-circuitpython-bundle-py-20210727\examples   look for examples and the files they are importing. 
